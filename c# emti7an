@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace testy_emti7an_form
+{
+    public partial class Form1 : Form
+    {
+
+        public Form1()
+        {
+         
+        InitializeComponent();
+
+            Button button = new Button();
+            button.Text = "Hello, Windows Users";
+            button.Click += button_Click;
+            this.Controls.Add(button);
+
+            Form form = new Form();
+            form.ShowDialog(this);
+            // Creating and setting the label 
+            Label mylab = new Label();
+            mylab.Text = "GeeksforGeeks";
+            mylab.Location = new Point(222, 90);
+            mylab.AutoSize = true;
+            mylab.Font = new Font("Calibri", 18);
+            mylab.ForeColor = Color.Green;
+            mylab.Padding = new Padding(6);
+            //mylab.Location = new Point(1,1);
+
+
+            
+
+
+            // Adding this control to the form 
+            this.Controls.Add(mylab);
+        }
+        private void FormIsClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        void button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You Clicked me.");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.MinimumSize = new Size(200, 200);
+            this.MaximumSize = new Size(500, 500);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Move(object sender, EventArgs e)
+        {
+            this.x.Text = Location.X.ToString();
+            this.label6.Text = Location.Y.ToString();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            this.label7.Text = Size.Width.ToString();
+            this.label8.Text = Size.Height.ToString();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ControlBox)
+            {
+                this.ControlBox = false;
+            }
+            else
+            {
+                this.ControlBox = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            //this.Activate();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Opacity == 1)
+            {
+                this.Opacity = .50;
+            } else
+            {
+                this.Opacity = 1;
+            }
+            
+        }
+    }
+}
